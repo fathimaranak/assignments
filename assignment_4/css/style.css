@@ -1,0 +1,44 @@
+body {
+    font-family: Arial;
+    background-color: lightgray;
+}
+
+.form-container {
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.gender input {
+    width: auto;
+}
+
+p {
+    color: red;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
