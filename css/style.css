@@ -1,0 +1,453 @@
+/* ==============================
+   GENERAL
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f8fc;
+    color: #202124;
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   NAVIGATION
+================================= */
+
+.navbar {
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #222222;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #555555;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #6c4ce8;
+}
+
+
+/* ==============================
+   HOME
+================================= */
+
+.home {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 10%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f8fc 0%,
+            #ffffff 100%
+        );
+}
+
+.home-content {
+    max-width: 850px;
+}
+
+.small-text {
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #6c4ce8;
+
+    margin-bottom: 15px;
+}
+
+.home h1 {
+    font-size: clamp(45px, 7vw, 78px);
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+
+    color: #171717;
+}
+
+.home h2 {
+    font-size: 25px;
+
+    font-weight: 500;
+
+    color: #555555;
+
+    margin-bottom: 25px;
+}
+
+.intro {
+    max-width: 650px;
+
+    font-size: 18px;
+
+    color: #666666;
+
+    margin-bottom: 35px;
+}
+
+
+/* ==============================
+   BUTTONS
+================================= */
+
+.buttons {
+    display: flex;
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    background: #6c4ce8;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border: 1px solid #6c4ce8;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #5838d0;
+
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+
+    color: #6c4ce8;
+}
+
+.btn-outline:hover {
+    background: #6c4ce8;
+
+    color: #ffffff;
+}
+
+
+/* ==============================
+   PAGE SECTIONS
+================================= */
+
+.page-section {
+    min-height: calc(100vh - 75px);
+
+    padding: 90px 10%;
+
+    background: #ffffff;
+}
+
+.page-content {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.page-content h1 {
+    font-size: 48px;
+
+    margin-bottom: 35px;
+
+    color: #171717;
+}
+
+.page-content > p {
+    font-size: 17px;
+
+    color: #555555;
+
+    margin-bottom: 22px;
+
+    max-width: 800px;
+}
+
+
+/* ==============================
+   ABOUT
+================================= */
+
+.about-block {
+    margin-top: 55px;
+}
+
+.about-block h2 {
+    font-size: 25px;
+
+    margin-bottom: 20px;
+
+    color: #222222;
+}
+
+.skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.skills span {
+    padding: 10px 18px;
+
+    background: #f1efff;
+
+    color: #5b3fd1;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* ==============================
+   EDUCATION
+================================= */
+
+.education-card {
+    padding: 25px;
+
+    background: #f7f8fc;
+
+    border-left: 4px solid #6c4ce8;
+
+    border-radius: 5px;
+}
+
+.education-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+
+    color: #222222;
+}
+
+.education-card p {
+    color: #666666;
+}
+
+
+/* ==============================
+   CONTACT
+================================= */
+
+.contact-section {
+    background: #f7f8fc;
+}
+
+.contact-intro {
+    margin-bottom: 45px !important;
+}
+
+.contact-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.contact-card {
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e8e8;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.contact-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 12px;
+
+    color: #222222;
+}
+
+.contact-card p {
+    color: #666666;
+
+    font-size: 15px;
+
+    margin-bottom: 18px;
+}
+
+.contact-link {
+    text-decoration: none;
+
+    color: #6c4ce8;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   FOOTER
+================================= */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background: #171717;
+
+    color: #bbbbbb;
+
+    font-size: 13px;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 20px 6%;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .navbar nav {
+        gap: 20px;
+    }
+
+    .home {
+        padding: 70px 7%;
+    }
+
+    .home h1 {
+        font-size: 45px;
+    }
+
+    .home h2 {
+        font-size: 21px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .page-section {
+        padding: 70px 7%;
+    }
+
+    .page-content h1 {
+        font-size: 40px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .navbar nav a {
+        font-size: 13px;
+    }
+
+    .home h1 {
+        font-size: 38px;
+    }
+
+    .home h2 {
+        font-size: 19px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn {
+        text-align: center;
+    }
+}
