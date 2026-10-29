@@ -1,0 +1,12 @@
+{
+  "name": "fathima-rana-resume",
+  "version": "1.0.0",
+  "description": "Fathima Rana K resume served with Node.js and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
