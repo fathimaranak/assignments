@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - <%= resume.profile.name %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="resume">
+    <h1><%= resume.profile.name %></h1>
+
+    <p class="contact">
+        <% if (resume.profile.github) { %>
+            GitHub: <a href="<%= resume.profile.github %>" target="_blank" rel="noopener noreferrer"><%= resume.profile.github.replace(/^https?:\/\//, '') %></a>
+        <% } %>
+        <% if (resume.profile.github && resume.profile.linkedin) { %> | <% } %>
+        <% if (resume.profile.linkedin) { %>
+            LinkedIn: <a href="<%= resume.profile.linkedin %>" target="_blank" rel="noopener noreferrer"><%= resume.profile.linkedin.replace(/^https?:\/\//, '') %></a>
+        <% } %>
+    </p>
+
+    <% if (resume.summary) { %>
+        <h2>PROFESSIONAL SUMMARY</h2>
+        <hr>
+        <p><%= resume.summary %></p>
+    <% } %>
+
+    <% if (resume.education && resume.education.length) { %>
+        <h2>EDUCATION</h2>
+        <hr>
+        <% resume.education.forEach(item => { %>
+            <h3><%= item.qualification %> <span class="year"><%= item.year %></span></h3>
+            <p><i><%= item.institution %></i></p>
+            <% if (item.details) { %><p><%= item.details %></p><% } %>
+        <% }) %>
+    <% } %>
+
+    <% if (resume.internship && resume.internship.length) { %>
+        <h2>INTERNSHIP EXPERIENCE</h2>
+        <hr>
+        <% resume.internship.forEach(item => { %>
+            <h3><%= item.role %> – <%= item.company %><% if (item.location) { %>, <%= item.location %><% } %>
+                <span class="year"><%= item.duration %></span>
+            </h3>
+            <% if (item.responsibilities && item.responsibilities.length) { %>
+                <ul>
+                    <% item.responsibilities.forEach(point => { %><li><%= point %></li><% }) %>
+                </ul>
+            <% } %>
+        <% }) %>
+    <% } %>
+
+    <% if (resume.skills) { %>
+        <h2>TECHNICAL SKILLS</h2>
+        <hr>
+        <% if (resume.skills.languages && resume.skills.languages.length) { %><p><strong>Languages:</strong> <%= resume.skills.languages.join(', ') %></p><% } %>
+        <% if (resume.skills.mobileWeb && resume.skills.mobileWeb.length) { %><p><strong>Mobile &amp; Web:</strong> <%= resume.skills.mobileWeb.join(', ') %></p><% } %>
+        <% if (resume.skills.databases && resume.skills.databases.length) { %><p><strong>Databases:</strong> <%= resume.skills.databases.join(', ') %></p><% } %>
+        <% if (resume.skills.tools && resume.skills.tools.length) { %><p><strong>Tools &amp; Platforms:</strong> <%= resume.skills.tools.join(', ') %></p><% } %>
+    <% } %>
+
+    <% if (resume.projects && resume.projects.length) { %>
+        <h2>PROJECTS</h2>
+        <hr>
+        <% resume.projects.forEach(project => { %>
+            <h3><%= project.name %></h3>
+            <% if (project.technologies && project.technologies.length) { %>
+                <p><i><strong>Technologies:</strong> <%= project.technologies.join(', ') %></i></p>
+            <% } %>
+            <% if (project.description && project.description.length) { %>
+                <ul><% project.description.forEach(point => { %><li><%= point %></li><% }) %></ul>
+            <% } %>
+        <% }) %>
+    <% } %>
+
+    <% if (resume.leadership && resume.leadership.length) { %>
+        <h2>LEADERSHIP &amp; EXTRACURRICULAR EXPERIENCE</h2>
+        <hr>
+        <% resume.leadership.forEach(item => { %>
+            <h3><%= item.title %> <span class="year"><%= item.date %></span></h3>
+            <% if (item.details && item.details.length) { %>
+                <ul><% item.details.forEach(point => { %><li><%= point %></li><% }) %></ul>
+            <% } %>
+        <% }) %>
+    <% } %>
+</div>
+</body>
+</html>
