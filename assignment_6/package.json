@@ -1,0 +1,12 @@
+{
+  "name": "assignment-6-personal-website",
+  "version": "1.0.0",
+  "description": "Fathima Rana personal portfolio website served using Node.js and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
