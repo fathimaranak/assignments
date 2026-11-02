@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | <%= website.profile.name %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header', { website, activePage }) %>
+
+    <section class="page-section">
+        <div class="page-content">
+            <p class="small-text"><%= website.about.eyebrow %></p>
+            <h1><%= website.about.heading %></h1>
+
+            <% website.about.paragraphs.forEach(paragraph => { %>
+                <p><%= paragraph %></p>
+            <% }) %>
+
+            <div class="about-block">
+                <h2><%= website.about.skillsHeading %></h2>
+                <div class="skills">
+                    <% website.about.skills.forEach(skill => { %>
+                        <span><%= skill %></span>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="about-block">
+                <h2><%= website.about.educationHeading %></h2>
+                <% website.about.education.forEach(item => { %>
+                    <div class="education-card">
+                        <h3><%= item.qualification %></h3>
+                        <p><%= item.institution %></p>
+                        <% if (item.details) { %><p><%= item.details %></p><% } %>
+                    </div>
+                <% }) %>
+            </div>
+
+            <div class="about-block">
+                <h2><%= website.about.careerGoalHeading %></h2>
+                <p><%= website.about.careerGoal %></p>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer', { website }) %>
+</body>
+</html>

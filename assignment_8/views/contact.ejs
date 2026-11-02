@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | <%= website.profile.name %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header', { website, activePage }) %>
+
+    <section class="page-section contact-section">
+        <div class="page-content">
+            <p class="small-text"><%= website.contact.eyebrow %></p>
+            <h1><%= website.contact.heading %></h1>
+            <p class="contact-intro"><%= website.contact.intro %></p>
+
+            <div class="contact-container">
+                <% website.contact.cards.forEach(card => { %>
+                    <div class="contact-card">
+                        <h3><%= card.title %></h3>
+                        <p><%= card.description %></p>
+                        <% if (card.linkUrl && card.linkText) { %>
+                            <a href="<%= card.linkUrl %>" target="_blank" rel="noopener noreferrer" class="contact-link"><%= card.linkText %></a>
+                        <% } %>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer', { website }) %>
+</body>
+</html>

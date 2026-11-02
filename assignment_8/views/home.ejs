@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= website.profile.name %> | Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header', { website, activePage }) %>
+
+    <section class="home">
+        <div class="home-content">
+            <p class="small-text"><%= website.home.greeting %></p>
+            <h1><%= website.home.heading %></h1>
+            <h2><%= website.profile.role %></h2>
+            <p class="intro"><%= website.home.intro %></p>
+            <div class="buttons">
+                <a href="/about" class="btn"><%= website.home.aboutButton %></a>
+                <a href="/contact" class="btn btn-outline"><%= website.home.contactButton %></a>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer', { website }) %>
+</body>
+</html>
