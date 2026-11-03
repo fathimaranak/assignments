@@ -1,0 +1,8 @@
+<%- include('partials/head', { title: 'Dashboard' }) %>
+  <h1>Dashboard</h1>
+  <p>Welcome, <strong><%= currentUser.username %></strong>. You are logged in.</p>
+
+  <form action="/logout" method="POST">
+    <button type="submit" class="secondary">Log out</button>
+  </form>
+<%- include('partials/foot') %>
