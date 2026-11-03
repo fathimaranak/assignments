@@ -1,0 +1,19 @@
+<article class="card">
+  <a class="card-link" href="/movies/<%= movie.movieId %>">
+    <div class="poster">
+      <img src="<%= movie.posterUrl %>" alt="Poster of <%= movie.movieName %>" loading="lazy" width="400" height="600"
+           onerror="this.onerror=null;this.src='/posters/placeholder.svg';">
+      <span class="rating" title="Rating out of 10"><%= movie.rating.toFixed(1) %></span>
+    </div>
+    <div class="card-body">
+      <h2><%= movie.movieName %></h2>
+      <p class="byline">Directed by <%= movie.director %></p>
+      <ul class="facts">
+        <li><%= movie.releaseYear %></li>
+        <li><%= movie.language %></li>
+        <li><%= Math.floor(movie.duration / 60) %>h <%= movie.duration % 60 %>m</li>
+      </ul>
+      <p class="genre-tag"><%= movie.genre %></p>
+    </div>
+  </a>
+</article>

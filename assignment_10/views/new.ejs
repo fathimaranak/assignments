@@ -1,0 +1,45 @@
+<%- include('partials/head', { title }) %>
+
+<h1 class="form-title">Add a movie</h1>
+
+<% if (errors.length) { %>
+  <div class="notice notice-error" role="alert">
+    <p>Fix the following and try again:</p>
+    <ul>
+      <% errors.forEach(function (e) { %><li><%= e %></li><% }); %>
+    </ul>
+  </div>
+<% } %>
+
+<form class="simple-form" method="post" action="/movies">
+  <label>Movie name
+    <input name="movieName" value="<%= values.movieName || '' %>" required>
+  </label>
+  <label>Director
+    <input name="director" value="<%= values.director || '' %>" required>
+  </label>
+  <label>Genre
+    <input name="genre" value="<%= values.genre || '' %>" required>
+  </label>
+  <label>Release year
+    <input name="releaseYear" type="number" min="1888" value="<%= values.releaseYear || '' %>" required>
+  </label>
+  <label>Language
+    <input name="language" value="<%= values.language || '' %>" required>
+  </label>
+  <label>Duration (minutes)
+    <input name="duration" type="number" min="1" value="<%= values.duration || '' %>" required>
+  </label>
+  <label>Rating (0 to 10)
+    <input name="rating" type="number" min="0" max="10" step="0.1" value="<%= values.rating || '' %>" required>
+  </label>
+  <label>Description
+    <textarea name="description" rows="4" required><%= values.description || '' %></textarea>
+  </label>
+  <label>Poster image URL (optional)
+    <input name="posterUrl" value="<%= values.posterUrl || '' %>" placeholder="https://...">
+  </label>
+  <button class="btn" type="submit">Save movie</button>
+</form>
+
+<%- include('partials/foot') %>

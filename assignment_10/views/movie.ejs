@@ -1,0 +1,27 @@
+<%- include('partials/head', { title }) %>
+
+<a class="back" href="/" data-back>Back to all movies</a>
+
+<article class="detail">
+  <div class="detail-poster">
+    <img src="<%= movie.posterUrl %>" alt="Poster of <%= movie.movieName %>" width="400" height="600"
+         onerror="this.onerror=null;this.src='/posters/placeholder.svg';">
+  </div>
+  <div class="detail-body">
+    <p class="genre-tag"><%= movie.genre %></p>
+    <h1><%= movie.movieName %></h1>
+    <p class="byline">Directed by <%= movie.director %></p>
+
+    <p class="description"><%= movie.description %></p>
+
+    <dl class="specs">
+      <div><dt>Rating</dt><dd><%= movie.rating.toFixed(1) %> out of 10</dd></div>
+      <div><dt>Released</dt><dd><%= movie.releaseYear %></dd></div>
+      <div><dt>Language</dt><dd><%= movie.language %></dd></div>
+      <div><dt>Duration</dt><dd><%= Math.floor(movie.duration / 60) %>h <%= movie.duration % 60 %>m (<%= movie.duration %> minutes)</dd></div>
+      <div><dt>Movie ID</dt><dd><%= movie.movieId %></dd></div>
+    </dl>
+  </div>
+</article>
+
+<%- include('partials/foot') %>

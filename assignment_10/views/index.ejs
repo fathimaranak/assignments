@@ -1,0 +1,68 @@
+<%- include('partials/head', { title }) %>
+
+<section class="intro">
+  <h1>Find a film to watch tonight</h1>
+  <p class="lede">Search by name or narrow the list by genre.</p>
+</section>
+
+<form class="toolbar" method="get" action="/" role="search">
+  <div class="field">
+    <label for="q">Movie name</label>
+    <input id="q" type="search" name="q" value="<%= q %>" placeholder="Try “Inception”" maxlength="100" autocomplete="off">
+  </div>
+  <div class="field">
+    <label for="genre">Genre</label>
+    <select id="genre" name="genre" data-autosubmit>
+      <option value="">All genres</option>
+      <% genres.forEach(function (g) { %>
+        <option value="<%= g %>" <%= g === activeGenre ? 'selected' : '' %>><%= g %></option>
+      <% }); %>
+    </select>
+  </div>
+  <button type="submit" class="btn">Search</button>
+  <% if (q || activeGenre) { %>
+    <a class="btn btn-quiet" href="/">Clear filters</a>
+  <% } %>
+</form>
+
+<% if (genres.length) { %>
+<nav class="chips" aria-label="Genres">
+  <a href="/<%= q ? '?q=' + encodeURIComponent(q) : '' %>" class="chip <%= !activeGenre ? 'is-active' : '' %>">All</a>
+  <% genres.forEach(function (g) {
+       var href = '/?genre=' + encodeURIComponent(g) + (q ? '&q=' + encodeURIComponent(q) : ''); %>
+    <a href="<%= href %>" class="chip <%= g === activeGenre ? 'is-active' : '' %>"><%= g %></a>
+  <% }); %>
+</nav>
+<% } %>
+
+<% if (totalInDb === 0) { %>
+  <section class="notice" role="status">
+    <h2>The Movies collection is empty</h2>
+    <p>Add the sample movies by running this command in the project folder:</p>
+    <pre><code>npm run seed</code></pre>
+  </section>
+
+<% } else if (movies.length === 0) { %>
+  <section class="notice" role="status">
+    <h2>No movies match your search</h2>
+    <p>
+      <% if (q && activeGenre) { %>Nothing called “<%= q %>” in <%= activeGenre %>.<% }
+         else if (q) { %>Nothing is called “<%= q %>”.<% }
+         else { %>There are no <%= activeGenre %> movies yet.<% } %>
+      Check the spelling or clear the filters.
+    </p>
+    <a class="btn" href="/">Show all movies</a>
+  </section>
+
+<% } else { %>
+  <p class="count" aria-live="polite">
+    <%= movies.length %> <%= movies.length === 1 ? 'movie' : 'movies' %><%= (q || activeGenre) ? ' found' : '' %>
+  </p>
+  <div class="grid">
+    <% movies.forEach(function (movie) { %>
+      <%- include('partials/movie-card', { movie }) %>
+    <% }); %>
+  </div>
+<% } %>
+
+<%- include('partials/foot') %>
