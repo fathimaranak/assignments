@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eef2f7;
+  color: #263244;
+  font-family: 'DM Sans', Arial, sans-serif;
+}
+
+button, input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
